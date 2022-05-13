@@ -1,0 +1,39 @@
+import random
+
+#r = random.randrange(-5, 11) #doesn't include 11
+#r = random.randint(-5, 11) #includes 11
+max_number = input("Type a number: ")
+if max_number.isdigit():
+    max_number = int(max_number)
+
+    if max_number <= 0:
+        print("Please type a number larger than 0")
+        quit()
+else:
+    print("Please type a number next time.")
+    quit()
+
+
+randomNumber = random.randint(0, max_number)
+guesses = 0
+
+while True:
+    guesses += 1
+    userGuess = input("Make a guess: ")
+    if userGuess.isdigit():
+        userGuess = int(userGuess)
+    else:
+        print("Please type a number next time.")
+        continue
+
+    if userGuess == randomNumber:
+        print("You got it right!!")
+        break
+    elif userGuess > randomNumber:
+        print("Wrong. You were above the number")
+    else:
+        print("Wrong. You were below the number")
+
+print("You got it in", guesses, "guesses")
+#/print("You got it in " + str(guesses) + " guesses")
+
